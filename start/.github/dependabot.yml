@@ -1,0 +1,100 @@
+version: 2
+updates:
+  # ========================================================================
+  # TODO: DEMO - Dependabot Configuration
+  #
+  # Dependabot automatically:
+  # 1. Scans your dependencies for updates
+  # 2. Opens PRs with updated versions
+  # 3. Can auto-merge minor/patch updates (optional)
+  #
+  # How to Demo:
+  # 1. Commit this file to your repo
+  # 2. Show the "Dependabot" tab on GitHub
+  # 3. Create a PR with an intentionally outdated package
+  # 4. Show how Dependabot detects and offers updates
+  # 5. Explain version pinning strategies (semantic versioning)
+  # ========================================================================
+  
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    
+    # ====================================================================
+    # PR Configuration
+    # ====================================================================
+    pull-request-branch-name:
+      separator: "/"
+    
+    # ====================================================================
+    # Versioning Strategy
+    # Allow Dependabot to suggest updates
+    # ====================================================================
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    
+    # ====================================================================
+    # Auto-merge configuration
+    # NOTE: Requires branch protection rules to be configured
+    # Optional: enable auto-merge for minor/patch updates
+    # ====================================================================
+    # auto-merge: true
+    # commit-message:
+    #   prefix: "[AUTOMATED]"
+    
+    # ====================================================================
+    # Labeling for organization
+    # ====================================================================
+    labels:
+      - "dependencies"
+      - "security"
+    
+    # ====================================================================
+    # Assign reviewers (optional)
+    # ====================================================================
+    # reviewers:
+    #   - "security-team"
+    
+    # ====================================================================
+    # Group dependencies to reduce PR noise
+    # ====================================================================
+    groups:
+      development:
+        dependency-types:
+          - "dev"
+      production:
+        dependency-types:
+          - "production"
+
+# ============================================================================
+# DEPENDABOT BEST PRACTICES FOR THIS DEMO
+#
+# 1. Dependencies Tab:
+#    - Students can see dependency graph
+#    - Shows which packages are used and their relationships
+#
+# 2. Security Advisories:
+#    - If any package has a CVE, Dependabot shows it
+#    - Can auto-open high-priority security PRs
+#
+# 3. Update Strategy:
+#    - Weekly PRs for new versions available
+#    - Can customize interval (daily, weekly, monthly)
+#    - Group updates to reduce noise
+#
+# 4. Version Constraints:
+#    - Minor/patch updates only (not major) to reduce breaking changes
+#    - Serilog 7.x.x -> 8.0.0 (major: breaking, Dependabot will create PR)
+#    - Serilog 8.0.0 -> 8.0.1 (patch: safe, can auto-merge)
+#
+# INSTRUCTOR NOTE:
+# When demoing Dependabot with students:
+# - Navigate to Dependencies tab on GitHub
+# - Show the dependency graph visualization
+# - Click on a package to see its version constraints
+# - If a PR is open, walk through the automated checks
+# ============================================================================

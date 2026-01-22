@@ -1,0 +1,74 @@
+name: Dependency Review
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+# ============================================================================
+# TODO: DEMO - Dependency Review with GitHub Actions
+#
+# This workflow uses the official GitHub Dependency Review Action
+# to scan pull request changes for new vulnerable dependencies.
+#
+# How to Demo:
+# 1. Create a PR that adds an older version of a package with CVE
+# 2. The action will detect it and comment on the PR
+# 3. Walk through the PR checks to show:
+#    - Which dependency has the vulnerability
+#    - The CVE ID and severity
+#    - What version fixes it
+# ============================================================================
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    
+    # Minimal permissions: only read access to repo content
+    permissions:
+      contents: read
+      pull-requests: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # Only need latest commit for diff
+      
+      # ====================================================================
+      # Dependency Review Action
+      # This scans the PR for changes to lock files (.csproj, packages.lock.json, etc.)
+      # and checks those dependencies against GitHub's vulnerability database
+      # ====================================================================
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          # Fail the check if HIGH or CRITICAL severity is detected
+          fail-on-severity: high
+          # Optional: Set to 'moderate' to fail on MODERATE and above
+          # fail-on-severity: moderate
+
+          # Optional OWASP supply-chain hardening: license governance (compliance gate)
+          # Uncomment to block disallowed licenses (example values shown).
+          # deny-licenses: GPL-2.0, GPL-3.0
+
+          # Optional: allow-licenses can be used instead of deny-licenses.
+          # allow-licenses: MIT, Apache-2.0, BSD-3-Clause
+# ============================================================================
+# NOTES ON DEPENDENCY-REVIEW-ACTION
+# 
+# Advantages:
+# - Checks GitHub's comprehensive vulnerability database
+# - Works on PRs (before code reaches main)
+# - Automatic comments on PRs explaining vulnerabilities
+# - Free for public repositories
+# - No setup required (uses GitHub data)
+#
+# Limitation:
+# - Only available for repositories with Dependency Graph enabled
+# - Requires at least GitHub Free plan (enabled by default for public repos)
+#
+# When it Triggers:
+# - Only on PRs that modify .csproj, packages.lock.json, or similar files
+# - Shows which specific version introduces the vulnerability
+# - Suggests fixes (upgrade path)
+# ============================================================================

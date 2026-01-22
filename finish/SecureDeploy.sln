@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDeploy.DemoApi", "src\SecureDeploy.DemoApi\SecureDeploy.DemoApi.csproj", "{8F1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDeploy.Shared", "src\SecureDeploy.Shared\SecureDeploy.Shared.csproj", "{9F2B3C4D-5E6F-7A8B-9C0D-1F2A3B4C5D6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDeploy.DemoApi.Tests", "tests\SecureDeploy.DemoApi.Tests\SecureDeploy.DemoApi.Tests.csproj", "{AF3B4C5D-6E7F-8A9B-0C1D-2F3A4B5C6D7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2B3C4D-5E6F-7A8B-9C0D-1F2A3B4C5D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2B3C4D-5E6F-7A8B-9C0D-1F2A3B4C5D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2B3C4D-5E6F-7A8B-9C0D-1F2A3B4C5D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2B3C4D-5E6F-7A8B-9C0D-1F2A3B4C5D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF3B4C5D-6E7F-8A9B-0C1D-2F3A4B5C6D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF3B4C5D-6E7F-8A9B-0C1D-2F3A4B5C6D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF3B4C5D-6E7F-8A9B-0C1D-2F3A4B5C6D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF3B4C5D-6E7F-8A9B-0C1D-2F3A4B5C6D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

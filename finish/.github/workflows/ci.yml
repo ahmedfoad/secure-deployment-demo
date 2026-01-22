@@ -1,0 +1,133 @@
+name: CI - Build and Test with SCA Gate
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # ========================================================================
+    # Security Best Practice: Least Privilege Permissions
+    # Only grant permissions this workflow actually needs
+    # ========================================================================
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better analysis
+    
+    # ========================================================================
+    # Step 1: Setup .NET 10
+    # ========================================================================
+    - name: Setup .NET 10
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    # ========================================================================
+    # Step 2: Restore Dependencies
+    # ========================================================================
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # ========================================================================
+    # Step 3: Build Application
+    # ========================================================================
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    # ========================================================================
+    # Step 4: Run Tests
+    # ========================================================================
+    - name: Test
+      run: dotnet test --configuration Release --no-build --verbosity normal --logger "trx;logfilename=test-results.trx"
+
+    # ========================================================================
+    # TODO: DEMO STEP - Software Composition Analysis (SCA) GATE
+    # 
+    # This gate prevents vulnerable dependencies from being merged to main.
+    # Students will see how vulnerabilities are detected in the CI/CD pipeline.
+    #
+    # How to Demo:
+    # 1. Show this step succeeds (no vulnerabilities found)
+    # 2. Create a branch with an older vulnerable package version
+    # 3. Open a PR and show this step FAILS
+    # 4. Walk through the dotnet list output to explain vulnerability details
+    # 5. Show how to fix: upgrade the package
+    # ========================================================================
+    - name: 'Security Gate: Check for Vulnerable Dependencies'
+      run: |
+        echo "=========================================="
+        echo "Checking for vulnerable NuGet packages..."
+        echo "=========================================="
+        set -euo pipefail
+
+        dotnet list package --vulnerable --include-transitive | tee vulnerable-packages.txt
+
+        echo ""
+        echo "Evaluating SCA results..."
+
+        # PASS condition: dotnet prints "has no vulnerable packages" for each project.
+        # FAIL condition: anything else (including actual vulnerability listings).
+        if grep -Eiq "has no vulnerable packages" vulnerable-packages.txt; then
+          # If there ARE vulnerabilities, dotnet typically outputs a vulnerability section.
+          # This extra check prevents false passes when output format differs.
+          if grep -Eiq "(Severity|Advisory|GHSA-|CVE-)" vulnerable-packages.txt; then
+            echo ""
+            echo "SCA GATE FAILED: Vulnerable dependencies detected."
+            exit 1
+          fi
+
+          echo ""
+          echo "SCA GATE PASSED: No vulnerable dependencies detected."
+        else
+          echo ""
+          echo "SCA GATE FAILED: Unable to confirm a clean vulnerability scan."
+          echo "Check NuGet sources/auditing settings and review output."
+          exit 1
+        fi
+
+        echo ""
+        echo "=========================================="
+        echo "All Dependencies (for reference):"
+        echo "=========================================="
+        dotnet list package --include-transitive
+    # ========================================================================
+    # Step 5: Publish Build Artifacts (optional, for CD pipeline)
+    # ========================================================================
+    - name: Publish application
+      if: success()
+      run: dotnet publish -c Release -o ./publish
+    
+    # ========================================================================
+    # Security Note: Never log sensitive data in workflow logs
+    # ========================================================================
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: |
+          **/test-results.trx
+        retention-days: 7
+
+# ============================================================================
+# DOCUMENTATION: How SCA Gate Works
+# ============================================================================
+# 1. When a PR is created, this workflow runs automatically
+# 2. The "dotnet list package --vulnerable" command scans all dependencies
+# 3. If vulnerabilities are found:
+#    - The workflow step FAILS (red X)
+#    - The PR cannot be merged (if branch protection is configured)
+#    - Team must update dependencies before merge is allowed
+# 4. This prevents vulnerable code from reaching production
+#
+# Real-World Example:
+# - You have Newtonsoft.Json 12.0.1 (has CVE-2023-12345)
+# - dotnet list would show this
+# - You must upgrade to 13.0.3 (patched version)
+# - After upgrade, vulnerability scan passes
+# ============================================================================

@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # ============================================================
+  # NuGet dependencies (.NET)
+  # ============================================================
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+    open-pull-requests-limit: 5
+
+    # Only allow security and version updates (no lockfile noise)
+    versioning-strategy: auto
+
+    # Group updates to reduce PR noise
+    groups:
+      nuget-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+
+    # Optional: ignore very major jumps if you want stability
+    # ignore:
+    #   - dependency-name: "*"
+    #     update-types: ["version-update:semver-major"]

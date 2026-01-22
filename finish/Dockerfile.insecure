@@ -1,0 +1,37 @@
+# ============================================================================
+# INSECURE DOCKERFILE - For Demonstrating Security Issues
+# This Dockerfile contains multiple security anti-patterns shown during demo
+# DO NOT USE IN PRODUCTION
+# ============================================================================
+
+# ❌ ISSUE 1: Using 'latest' tag - unpinned version, no reproducibility
+FROM mcr.microsoft.com/dotnet/sdk:latest AS build
+
+WORKDIR /app
+
+# ❌ ISSUE 2: Copying entire source early - defeats layer caching
+COPY . .
+
+RUN dotnet restore
+RUN dotnet build -c Release
+
+# ============================================================================
+
+# ❌ ISSUE 3: Still using 'latest' tag in runtime
+FROM mcr.microsoft.com/dotnet/aspnet:latest
+
+WORKDIR /app
+
+# ❌ ISSUE 4: No explicit non-root user - runs as root (HIGH RISK)
+# Container runs as root if USER is not specified
+
+# ❌ ISSUE 5: Listening on default HTTP port (5000), could be overridden
+EXPOSE 5000
+
+COPY --from=build /app/bin/Release/net10.0/publish/ .
+
+# ❌ ISSUE 6: No HEALTHCHECK directive
+# Kubernetes/Orchestrators cannot detect if app is healthy
+
+# ❌ ISSUE 7: Entrypoint allows easy override - less secure
+ENTRYPOINT ["dotnet", "SecureDeploy.DemoApi.dll"]
