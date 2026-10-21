@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecureDeploy.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20abd0797b501c253b8dc6c5a2e74385140dbaac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cee298a8fce13153538519471c8a990adbb9dd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecureDeploy.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecureDeploy.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
