@@ -122,3 +122,4 @@ C:\Work\Ahmed\Projects\secure-deployment-demo\start\tests\SecureDeploy.DemoApi.T
 C:\Work\Ahmed\Projects\secure-deployment-demo\start\tests\SecureDeploy.DemoApi.Tests\obj\Debug\net10.0\SecureDeploy.DemoApi.Tests.pdb
 C:\Work\Ahmed\Projects\secure-deployment-demo\start\tests\SecureDeploy.DemoApi.Tests\obj\Debug\net10.0\SecureDeploy.DemoApi.Tests.genruntimeconfig.cache
 C:\Work\Ahmed\Projects\secure-deployment-demo\start\tests\SecureDeploy.DemoApi.Tests\obj\Debug\net10.0\ref\SecureDeploy.DemoApi.Tests.dll
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\tests\SecureDeploy.DemoApi.Tests\bin\Debug\net10.0\.msCoverageSourceRootsMapping_SecureDeploy.DemoApi.Tests
