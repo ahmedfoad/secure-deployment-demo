@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "SecureDeploy.Shared/1.0.0": {
+        "runtime": {
+          "SecureDeploy.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SecureDeploy.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

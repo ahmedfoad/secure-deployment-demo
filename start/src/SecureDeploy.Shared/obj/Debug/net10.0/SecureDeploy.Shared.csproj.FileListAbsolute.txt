@@ -1,0 +1,13 @@
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\bin\Debug\net10.0\SecureDeploy.Shared.deps.json
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\bin\Debug\net10.0\SecureDeploy.Shared.dll
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\bin\Debug\net10.0\SecureDeploy.Shared.pdb
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.AssemblyInfoInputs.cache
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.AssemblyInfo.cs
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.csproj.CoreCompileInputs.cache
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.sourcelink.json
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.dll
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\refint\SecureDeploy.Shared.dll
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDeploy.Shared.pdb
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\ref\SecureDeploy.Shared.dll
+C:\Work\Ahmed\Projects\secure-deployment-demo\start\src\SecureDeploy.Shared\obj\Debug\net10.0\SecureDe.6ABA3BB0.Up2Date
