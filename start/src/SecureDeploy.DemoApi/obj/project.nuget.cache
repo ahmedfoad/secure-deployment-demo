@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "dgSpecHash": "GPDZtBr2fKM=",
+  "success": true,
+  "projectFilePath": "C:\\Work\\Ahmed\\Projects\\secure-deployment-demo\\start\\src\\SecureDeploy.DemoApi\\SecureDeploy.DemoApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\afoad\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\microsoft.extensions.diagnostics.healthchecks\\10.0.0\\microsoft.extensions.diagnostics.healthchecks.10.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog\\3.1.1\\serilog.3.1.1.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.aspnetcore\\8.0.0\\serilog.aspnetcore.8.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.extensions.hosting\\8.0.0\\serilog.extensions.hosting.8.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.extensions.logging\\8.0.0\\serilog.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.formatting.compact\\2.0.0\\serilog.formatting.compact.2.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.settings.configuration\\8.0.0\\serilog.settings.configuration.8.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.sinks.console\\5.0.0\\serilog.sinks.console.5.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.sinks.debug\\2.0.0\\serilog.sinks.debug.2.0.0.nupkg.sha512",
+    "C:\\Users\\afoad\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1510",
+      "level": "Warning",
+      "message": "PackageReference Microsoft.Extensions.Diagnostics.HealthChecks will not be pruned. This package is automatically available and does not need to be referenced explicitly. Remove the PackageReference item.",
+      "projectPath": "C:\\Work\\Ahmed\\Projects\\secure-deployment-demo\\start\\src\\SecureDeploy.DemoApi\\SecureDeploy.DemoApi.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Work\\Ahmed\\Projects\\secure-deployment-demo\\start\\src\\SecureDeploy.DemoApi\\SecureDeploy.DemoApi.csproj",
+      "libraryId": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
